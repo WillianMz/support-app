@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title>Setores</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true">
+
+  <ion-grid >
+    <ion-row>
+      <ion-col size="6">
+        <div>
+          <ion-searchbar animated placeholder="Procurar"></ion-searchbar>
+        </div>
+      </ion-col>
+      <ion-col size="6"></ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-list *ngFor="let s of sectors">
+    <ion-item button>
+      <ion-label>Pokémon Yellow</ion-label>
+    </ion-item>
+  </ion-list>
+
+
+
+
+</ion-content>
