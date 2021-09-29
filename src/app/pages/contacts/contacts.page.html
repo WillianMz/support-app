@@ -1,9 +1,44 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>contacts</ion-title>
+  <ion-toolbar color="primary">
+
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title>Contatos</ion-title>
   </ion-toolbar>
+
 </ion-header>
 
-<ion-content>
+<ion-content fullscreen="true">
+
+  <ion-searchbar animated placeholder="Procurar"></ion-searchbar>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button routerLink="new">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-list lines="inset">
+    <ion-list-header>
+      <!-- {{message}} -->
+    </ion-list-header>
+
+
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="../../../assets/img/img1.png">
+      </ion-avatar>
+      <ion-label>
+        <h2>neoprint</h2>
+        <h3>I'm a big deal</h3>
+        <p>Listen, I've had a pretty messed up day...</p>
+      </ion-label>
+    </ion-item>
+
+  </ion-list>
+
+
 
 </ion-content>

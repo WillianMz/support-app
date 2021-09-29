@@ -1,3 +1,4 @@
+import { CategoryFormComponent } from './category-form/category-form.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -7,6 +8,14 @@ const routes: Routes = [
   {
     path: '',
     component: CategoriesPage
+  },
+  {
+    path: 'new',
+    component: CategoryFormComponent
+  },
+  {
+    path: ':id',
+    component: CategoryFormComponent
   }
 ];
 

@@ -1,3 +1,4 @@
+import { CategoryFormComponent } from './category-form/category-form.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -15,6 +16,9 @@ import { CategoriesPage } from './categories.page';
     IonicModule,
     CategoriesPageRoutingModule
   ],
-  declarations: [CategoriesPage]
+  declarations: [
+    CategoriesPage,
+    CategoryFormComponent
+  ]
 })
 export class CategoriesPageModule {}

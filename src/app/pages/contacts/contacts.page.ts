@@ -7,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactsPage implements OnInit {
 
-  constructor() { }
+  contacts = [];
+
+  constructor() {
+    this.contacts = ['asdf'];
+  }
 
   ngOnInit() {
   }

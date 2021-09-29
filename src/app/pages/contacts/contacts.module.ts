@@ -1,3 +1,4 @@
+import { ContactFormComponent } from './contact-form/contact-form.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -15,6 +16,9 @@ import { ContactsPage } from './contacts.page';
     IonicModule,
     ContactsPageRoutingModule
   ],
-  declarations: [ContactsPage]
+  declarations: [
+    ContactsPage,
+    ContactFormComponent
+  ]
 })
 export class ContactsPageModule {}

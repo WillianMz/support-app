@@ -1,3 +1,4 @@
+import { SectorFormComponent } from './sector-form/sector-form.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -15,6 +16,9 @@ import { SectorsPage } from './sectors.page';
     IonicModule,
     SectorsPageRoutingModule
   ],
-  declarations: [SectorsPage]
+  declarations: [
+    SectorsPage,
+    SectorFormComponent
+  ]
 })
 export class SectorsPageModule {}
