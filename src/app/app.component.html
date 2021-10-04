@@ -17,6 +17,13 @@
           <ion-list-header>WILLIAN</ion-list-header>
           <ion-note>willian@loglabs.com.br</ion-note>
 
+          <!-- <ion-card>
+            <ion-card-header>
+              <ion-card-subtitle>willianmz.wn@gmail.com</ion-card-subtitle>
+              <ion-card-title>Olá Willian</ion-card-title>
+            </ion-card-header>
+          </ion-card> -->
+
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
             <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
               <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
@@ -33,6 +40,12 @@
             <ion-label>{{ label }}</ion-label>
           </ion-item>
         </ion-list> -->
+
+        <ion-list>
+          <ion-list-header>
+            <ion-label>Versão: 1.0.0</ion-label>
+          </ion-list-header>
+        </ion-list>
 
       </ion-content>
     </ion-menu>

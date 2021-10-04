@@ -1,6 +1,11 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>Fila de espera</ion-title>
+
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title>Atendimento On-line</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -11,6 +16,18 @@
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
+
+  <ion-segment value="pendente">
+    <ion-segment-button value="pendente">
+      <ion-label>Aguardando</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="atendendo">
+      <ion-label>Atendendo</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="concluido">
+      <ion-label>Concluído</ion-label>
+    </ion-segment-button>
+  </ion-segment>
 
   <ion-card>
     <ion-card-content>
