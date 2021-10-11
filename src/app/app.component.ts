@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   public appPages = [
     { title: 'Dashboard', url: '/dashboard', icon: 'bar-chart' },
-    { title: 'Empresas', url: '/companies', icon: 'folder-open' },
+    { title: 'Empresas', url: '/companies', icon: 'business' },
     { title: 'Setores', url: '/sectors', icon: 'folder-open' },
     { title: 'Categorias', url: '/categories', icon: 'layers' },
     { title: 'Contatos', url: '/contacts', icon: 'people' },

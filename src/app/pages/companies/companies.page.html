@@ -10,4 +10,29 @@
 
 <ion-content>
 
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button routerLink="new">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-list lines="inset">
+    <ion-list-header>
+      <!-- {{message}} -->
+    </ion-list-header>
+
+
+    <ion-item button [routerLink]="[comp.id]" *ngFor="let comp of companies">
+      <ion-avatar slot="start">
+        <img src="../../../assets/img/img1.png">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{comp.fantasia}}</h2>
+        <!-- <h3>{{comp.nome}}</h3> -->
+        <p>{{comp.nome}} | {{comp.cnpj}}</p>
+      </ion-label>
+    </ion-item>
+
+  </ion-list>
+
 </ion-content>

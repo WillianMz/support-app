@@ -12,16 +12,7 @@
 
 <ion-content fullscreen="true">
 
-  <ion-grid>
-    <ion-row>
-      <ion-col size="6">
-        <div>
-          <ion-searchbar animated placeholder="Procurar"></ion-searchbar>
-        </div>
-      </ion-col>
-      <ion-col size="6"></ion-col>
-    </ion-row>
-  </ion-grid>
+  <ion-searchbar animated placeholder="Procurar"></ion-searchbar>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button routerLink="new">
@@ -30,19 +21,12 @@
   </ion-fab>
 
   <ion-list lines="inset">
-    <ion-list-header>
-      {{message}}
-    </ion-list-header>
-
-
-    <ion-item *ngFor="let c of categories">
+    <ion-item button [routerLink]="[c.id]" *ngFor="let c of categories">
       <ion-avatar slot="start">
         <img src="../../../assets/img/img1.png">
       </ion-avatar>
       <ion-label>
         <h2>{{c.nome}}</h2>
-        <!-- <h3>I'm a big deal</h3> -->
-        <!-- <p>Listen, I've had a pretty messed up day...</p> -->
       </ion-label>
     </ion-item>
 

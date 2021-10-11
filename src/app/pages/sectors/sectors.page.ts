@@ -1,6 +1,7 @@
 import { SectorService } from './../../services/sector.service';
 import { Isector } from './../../models/isector';
 import { Component, OnInit } from '@angular/core';
+import { LoadingController, ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-sectors',
@@ -14,29 +15,53 @@ export class SectorsPage implements OnInit {
   sectorId: number;
   success: boolean;
   message: string;
+  loading: any;
 
   constructor(
-    private sectorService: SectorService
+    private sectorService: SectorService,
+    public loadingController: LoadingController,
+    public toastController: ToastController
   ) { }
 
-  ngOnInit() {
-    this.listAll();
+  async ngOnInit() {
+    await this.listAll();
   }
 
-  listAll(){
+  async presentLoading(mensagem: string) {
+    this.loading = await this.loadingController.create({
+      cssClass: 'my-custom-class',
+      message: mensagem
+    });
+
+    return this.loading.present();
+  }
+
+  async listAll(){
+    this.presentLoading('aguarde...');
+
     setTimeout(() => {
       this.sectorService.getAll().subscribe(
         (response) => {
-          this.sectors = response['dados'];
-          this.success = response['sucesso'];
-          this.message = response['mensagem'];
-          console.log(this.sectors);
+          this.sectors = response;
+          /* this.success = response['sucesso'];
+          this.message = response['mensagem']; */
         },
         (error) => {
           this.sectors = [];
+          this.exibirAlerta('Ocorreu um erro ao consultar dados', 10000, 'danger');
         }
       );
-    }, 5000);
+      this.loading.dismiss();
+    }, 2000);
+  }
+
+  private exibirAlerta(msg: string, temp: number, cor: string){
+    this.toastController.create({
+      message: msg,
+      duration: temp,
+      keyboardClose: true,
+      color: cor
+    }).then(t => t.present());
   }
 
 }

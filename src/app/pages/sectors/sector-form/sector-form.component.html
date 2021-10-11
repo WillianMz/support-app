@@ -11,19 +11,47 @@
 
 <ion-content>
 
-  <ion-card *ngIf="true">
-    <ion-card-content>
-      <ion-item>
-        <ion-label position="floating">Nome do setor</ion-label>
-        <ion-input></ion-input>
-      </ion-item>
+  <ion-fab vertical="bottom"  horizontal="end" *ngIf="viewButtomSave">
+    <ion-fab-button color="primary" (click)="save()" [disabled]="!sectorForm.valid">
+      <ion-icon name="checkmark-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 
-      <ion-button color="primary" expand="full" disabled="true" >Salvar</ion-button>
+  <ion-fab vertical="top"  horizontal="end" *ngIf="viewButtomEdit">
+    <ion-fab-button color="warning" (click)="edit()">
+      <ion-icon name="create-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-card *ngIf="visibleCardSector">
+    <ion-card-content >
+      <form [formGroup]="sectorForm">
+
+        <ion-list>
+          <ion-item>
+            <ion-label position="floating">Nome do setor</ion-label>
+            <ion-input formControlName="nome" type="text" [disabled]="!editNameSector" ></ion-input>
+          </ion-item>
+
+          <ion-text color="danger" *ngIf="nome.errors && (nome.dirty || nome.touched)">
+            <small *ngIf="nome.errors.required">Nome é obrigatório</small>
+            <small *ngIf="nome.errors.minlength">
+              O campo Nome deve conter no mínimo {{nome.errors.minlength.requiredLength}} caracteres
+            </small>
+            <small *ngIf="nome.errors.maxlength">
+              O campo Nome deve conter no máximo {{nome.errors.maxlength.requiredLength}} caracteres
+            </small>
+          </ion-text>
+        </ion-list>
+
+        <!-- <ion-button *ngIf="true" color="warning" [disabled]="editable" >Editar</ion-button>
+        <ion-button *ngIf="true" color="primary" [disabled]="sectorForm.invalid">Salvar</ion-button> -->
+      </form>
 
     </ion-card-content>
   </ion-card>
 
-  <ion-card>
+  <ion-card *ngIf="viewCateg">
     <ion-card-header>
       <ion-card-subtitle>Categorias</ion-card-subtitle>
       <ion-card-title>Nenhum resultado encontado!</ion-card-title>
@@ -34,7 +62,7 @@
     </ion-card-content>
   </ion-card>
 
-  <ion-card>
+  <ion-card *ngIf="viewTickets">
     <ion-card-header>
       <ion-card-subtitle>Tickets</ion-card-subtitle>
       <ion-card-title>Nenhum resultado encontado!</ion-card-title>

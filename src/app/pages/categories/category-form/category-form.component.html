@@ -11,7 +11,53 @@
 
 <ion-content>
 
-  <ion-card *ngIf="true">
+  <ion-fab vertical="bottom"  horizontal="end" *ngIf="viewButtomSave">
+    <ion-fab-button color="primary" (click)="save()" [disabled]="!categForm.valid">
+      <ion-icon name="checkmark-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-fab vertical="top"  horizontal="end" *ngIf="viewButtomEdit">
+    <ion-fab-button color="warning" (click)="edit()">
+      <ion-icon name="create-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-card *ngIf="visibleCardCateg">
+    <ion-card-content >
+      <form [formGroup]="categForm">
+
+        <ion-list>
+          <ion-item>
+            <ion-label position="floating">Nome da categoria</ion-label>
+            <ion-input formControlName="nome" type="text" [disabled]="!editName" ></ion-input>
+          </ion-item>
+
+          <ion-text color="danger" *ngIf="nome.errors && (nome.dirty || nome.touched)">
+            <small *ngIf="nome.errors.required">Nome é obrigatório</small>
+            <small *ngIf="nome.errors.minlength">
+              O campo Nome deve conter no mínimo {{nome.errors.minlength.requiredLength}} caracteres
+            </small>
+            <small *ngIf="nome.errors.maxlength">
+              O campo Nome deve conter no máximo {{nome.errors.maxlength.requiredLength}} caracteres
+            </small>
+          </ion-text>
+
+          <ion-item>
+          <ion-label>Setor</ion-label>
+          <ion-select placeholder="Selecione" formControlName="sectorID" name="sectorID" multiple="false" ok-text="OK" cancel-text="Cancelar" >
+            <ion-select-option *ngFor="let sector of sectors" [value]="sector.id" >{{sector.nome}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        </ion-list>
+      </form>
+
+    </ion-card-content>
+  </ion-card>
+
+
+  <!-- <ion-card *ngIf="true">
     <ion-card-content>
       <ion-item>
         <ion-label position="floating">Nome da categoria</ion-label>
@@ -21,7 +67,7 @@
       <ion-button color="primary" expand="full" disabled="true" >Salvar</ion-button>
 
     </ion-card-content>
-  </ion-card>
+  </ion-card> -->
 
   <ion-card>
     <ion-card-header>

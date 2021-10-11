@@ -17,6 +17,7 @@ export class SectorService extends BaseService {
 
   save(isector: Isector){
     if(isector.id){
+      console.log(isector);
       return this.update(isector);
     }
     else {
@@ -25,20 +26,23 @@ export class SectorService extends BaseService {
   }
 
   getAll(): Observable<Isector[]>{
-    return this.http.get<Isector[]>(`${environment.api}/Setor`).pipe(map(this.extractData), catchError(this.serviceError));
+    //return this.http.get<Isector[]>(`${environment.api}/Setor`).pipe(map(this.extractData), catchError(this.serviceError));
+    return this.http.get<Isector[]>(`${environment.api}/Setor`);
   }
 
   getById(id: number): Observable<Isector>{
     return this.http.get<Isector>(`${environment.api}/setor/${id}`).pipe(map(this.extractData), catchError(this.serviceError));
   }
 
-  private create(isector: Isector): Observable<Isector>{
-    return this.http.post(`${environment.api}/setor`, isector, this.getHeaderJson())
-                    .pipe(map(this.extractData), catchError(this.serviceError));
+  private create(isector: Isector){
+    /* return this.http.post(`${environment.api}/setor`, isector, this.getHeaderJson())
+                    .pipe(map(this.extractData), catchError(this.serviceError)); */
+    return this.http.post(`${environment.api}/Setor`, isector);
   }
 
-  private update(isector: Isector): Observable<Isector>{
-    return this.http.put(`${environment.api}/setor`, isector, this.getHeaderJson())
-                    .pipe(map(this.extractData), catchError(this.serviceError));
+  private update(isector: Isector){
+    /* return this.http.put(`${environment.api}/setor`, isector, this.getHeaderJson())
+                    .pipe(map(this.extractData), catchError(this.serviceError)); */
+    return this.http.put(`${environment.api}/Setor/${isector.id}`, isector);
   }
 }
