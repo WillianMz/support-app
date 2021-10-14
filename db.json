@@ -102,11 +102,8 @@
       "ativo": true
     },
     {
-      "empresaId": 1,
-      "empresaNome": "WN Software",
-      "id": 7,
-      "nome": "Qualidade",
-      "ativo": true
+      "nome": "Auditoria e Segurança de Sistemas",
+      "id": 7
     },
     {
       "nome": "Pesquisa de Mercado",
