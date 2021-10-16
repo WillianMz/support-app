@@ -33,6 +33,10 @@ export class CategoryService extends BaseService {
     return this.http.get<Icategory>(`${environment.api}/categorias/${id}`).pipe(map(this.extractData), catchError(this.serviceError));
   }
 
+  getBySector(idSector: number): Observable<Icategory[]>{
+    return this.http.get<Icategory[]>(`${environment.api}/categorias?sectorID=${idSector}`);
+  }
+
   private create(icategory: Icategory){
     return this.http.post(`${environment.api}/categorias`, icategory);
   }

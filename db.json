@@ -66,7 +66,7 @@
   ],
   "setor": [
     {
-      "nome": "Administrativo",
+      "nome": "Administrativo - ADM",
       "id": 1
     },
     {
@@ -142,29 +142,39 @@
   ],
   "categorias": [
     {
-      "nome": "teste 2",
+      "nome": "contas a pagar",
       "sectorID": 2,
       "id": 1
     },
     {
-      "nome": "nova categoria teste",
-      "sectorID": 1,
+      "nome": "correção de bugs",
+      "sectorID": 4,
       "id": 2
     },
     {
-      "nome": "1234",
-      "sectorID": "Administrativo",
+      "nome": "contas a receber",
+      "sectorID": 2,
       "id": 3
     },
     {
-      "nome": "teste3234",
-      "sectorID": "1",
+      "nome": "implementação",
+      "sectorID": 4,
       "id": 4
     },
     {
-      "nome": "sdfgsdfg",
-      "sectorID": 3,
+      "nome": "Suporte ao Cliente",
+      "sectorID": 5,
       "id": 5
+    },
+    {
+      "nome": "teste de load",
+      "sectorID": 11,
+      "id": 6
+    },
+    {
+      "nome": "treinamento",
+      "sectorID": 12,
+      "id": 7
     }
   ],
   "contatos": [],

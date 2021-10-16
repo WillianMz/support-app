@@ -61,6 +61,10 @@ export class SectorFormComponent implements OnInit {
     }
   }
 
+  goCategories(){
+    this.router.navigate(['/categories'], {queryParams: { sector: this.sectorID}});
+  }
+
   startForm(isector: Isector) {
     this.sectorForm = new FormGroup({
       nome: new FormControl(isector.nome, [

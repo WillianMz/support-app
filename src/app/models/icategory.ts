@@ -4,5 +4,4 @@ export interface Icategory {
   nome?: string;
   ativa?: boolean;
   sectorID: number;
-  sector: Isector;
 }

@@ -30,7 +30,7 @@
         <ion-list>
           <ion-item>
             <ion-label position="floating">Nome da categoria</ion-label>
-            <ion-input formControlName="nome" type="text" [disabled]="!editName" ></ion-input>
+            <ion-input formControlName="nome" type="text" id="nome" [readonly]="isReadOnly"></ion-input>
           </ion-item>
 
           <ion-text color="danger" *ngIf="nome.errors && (nome.dirty || nome.touched)">
@@ -45,10 +45,12 @@
 
           <ion-item>
           <ion-label>Setor</ion-label>
-          <ion-select placeholder="Selecione" formControlName="sectorID" name="sectorID" multiple="false" ok-text="OK" cancel-text="Cancelar" >
-            <ion-select-option *ngFor="let sector of sectors" [value]="sector.id" >{{sector.nome}}</ion-select-option>
+          <ion-select  formControlName="sectorID" name="sectorID" multiple="false" ok-text="OK" cancel-text="Cancelar" >
+            <ion-select-option [value]="sector.id" *ngFor="let sector of sectors">{{sector.nome}}</ion-select-option>
           </ion-select>
         </ion-item>
+
+        {{selectOpt}}
 
         </ion-list>
       </form>

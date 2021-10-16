@@ -5,18 +5,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { CategoriesPage } from './categories.page';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: CategoriesPage
-  },
-  {
-    path: 'new',
-    component: CategoryFormComponent
-  },
-  {
-    path: ':id',
-    component: CategoryFormComponent
-  }
+  { path: '', component: CategoriesPage },
+  { path: 'new', component: CategoryFormComponent },
+  { path: ':id', component: CategoryFormComponent },
+  { path: 'sector/:id', component: CategoriesPage}
 ];
 
 @NgModule({

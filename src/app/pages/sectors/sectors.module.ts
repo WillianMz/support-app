@@ -1,3 +1,4 @@
+import { CategoriesPageModule } from './../categories/categories.module';
 import { SectorFormComponent } from './sector-form/sector-form.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';

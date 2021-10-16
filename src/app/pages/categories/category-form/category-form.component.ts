@@ -1,11 +1,12 @@
 import { CategoryService } from './../../../services/category.service';
 import { Icategory } from './../../../models/icategory';
-import { AfterContentChecked, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ToastController } from '@ionic/angular';
+import { ModalController, ToastController } from '@ionic/angular';
 import { SectorService } from 'src/app/services/sector.service';
 import { Isector } from 'src/app/models/isector';
+import { SectorsPage } from '../../sectors/sectors.page';
 
 @Component({
   selector: 'app-category-form',
@@ -18,11 +19,13 @@ export class CategoryFormComponent implements OnInit {
   category: Icategory;
   sectors: Isector[];
   categForm: FormGroup;
-  editName: boolean;
+  isReadOnly: boolean;
   visibleCardCateg: boolean;
   viewTickets: boolean;
   viewButtomSave: boolean;
   viewButtomEdit: boolean;
+
+  selectOpt: number;
 
   constructor(
     private categoryService: CategoryService,
@@ -34,8 +37,7 @@ export class CategoryFormComponent implements OnInit {
     const categ = {
       id: null,
       nome: '',
-      sectorID: null,
-      sector: null
+      sectorID: null
     };
     this.startForm(categ);
    }
@@ -49,20 +51,21 @@ export class CategoryFormComponent implements OnInit {
   }
 
   async ngOnInit() {
-    await this.listSectors();
+    //await this.listSectors();
+    this.listSectors();
 
     const id = this.activatedRoute.snapshot.paramMap.get('id');
     if (id) {
       this.categoryID = parseInt(id, 10);
       this.loadCategory(this.categoryID);
-      this.editName = false;
+      this.isReadOnly = true;
       this.visibleCardCateg = true;
       this.viewTickets = true;
       this.viewButtomEdit = true;
     }
     else{
       this.visibleCardCateg = true;
-      this.editName = true;
+      this.isReadOnly = false;
       this.viewTickets = false;
       this.viewButtomEdit = false;
       this.viewButtomSave = true;
@@ -71,7 +74,8 @@ export class CategoryFormComponent implements OnInit {
 
   startForm(icategory: Icategory) {
     this.categForm = new FormGroup({
-      nome: new FormControl(icategory.nome, [
+    //nome: new FormControl({value: icategory.nome, disabled: !this.editName}, [
+    nome: new FormControl(icategory.nome,[
         Validators.required,
         Validators.minLength(3),
         Validators.maxLength(150)
@@ -100,14 +104,25 @@ export class CategoryFormComponent implements OnInit {
   }
 
   edit(){
-    this.editName = true;
+    this.isReadOnly = false;
     this.viewButtomSave = true;
   }
 
-  async listSectors(){
+  listSectors(){
     //this.presentLoading('aguarde...');
+    //esta fora do setTimeout porque nao esta carregando ao editar uma categoria
+    //ainda nao sei como resolver.
+    this.sectorService.getAll().subscribe(
+      (response) => {
+        this.sectors = response;
+      },
+      (error) => {
+        this.sectors = [];
+        this.exibirAlerta('Ocorreu um erro ao consultar dados', 10000, 'danger');
+      }
+    );
 
-    setTimeout(() => {
+    /* setTimeout(() => {
       this.sectorService.getAll().subscribe(
         (response) => {
           this.sectors = response;
@@ -117,7 +132,7 @@ export class CategoryFormComponent implements OnInit {
           this.exibirAlerta('Ocorreu um erro ao consultar dados', 10000, 'danger');
         }
       );
-    }, 2000);
+    }, 5000); */
   }
 
   private loadCategory(idCategory: number){
@@ -126,6 +141,7 @@ export class CategoryFormComponent implements OnInit {
         this.category = response;
         console.log(response);
         this.startForm(this.category);
+        //this.categForm.setControl('sectorID', new FormControl(this.sectors.find(x => x.id === this.categForm.get('sectorID').value.id)));
       },
       (error) => {
         console.log('eee');

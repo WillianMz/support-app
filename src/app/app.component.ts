@@ -15,6 +15,7 @@ export class AppComponent {
     { title: 'Atendimentos', url: '/calls', icon: 'list' },
     { title: 'Configurações', url: '/settings', icon: 'warning' }
   ];
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
+
   constructor() {}
+
 }
