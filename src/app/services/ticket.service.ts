@@ -15,7 +15,38 @@ export class TicketService extends BaseService {
     super();
    }
 
-  create(iticket: Iticket): Observable<Iticket>{
+   save(iticket: Iticket){
+    if(iticket.id){
+      console.log(iticket);
+      return this.update(iticket);
+    }
+    else {
+      return this.create(iticket);
+    }
+  }
+
+  getAll(): Observable<Iticket[]>{
+    return this.http.get<Iticket[]>(`${environment.api}/tickets`);
+  }
+
+  getById(id: number): Observable<Iticket>{
+    return this.http.get<Iticket>(`${environment.api}/tickets/${id}`).pipe(map(this.extractData), catchError(this.serviceError));
+  }
+
+  getBySector(idSector: number): Observable<Iticket[]>{
+    return this.http.get<Iticket[]>(`${environment.api}/tickets?sectorID=${idSector}`);
+  }
+
+  private create(iticket: Iticket){
+    return this.http.post(`${environment.api}/tickets`, iticket);
+  }
+
+  private update(iticket: Iticket){
+    return this.http.put(`${environment.api}/tickets/${iticket.id}`, iticket);
+  }
+
+
+  /* create(iticket: Iticket): Observable<Iticket>{
     return this.http
       .post(`${environment.api}/Ticket`, iticket, this.getHeaderJson())
       .pipe(map(this.extractData), catchError(this.serviceError));
@@ -49,6 +80,6 @@ export class TicketService extends BaseService {
     return this.http
       .get<Iticket>(`${environment.api}/Ticket/${id}`, this.getHeaderJson())
       .pipe(map(this.extractData), catchError(this.serviceError));
-  }
+  } */
 
 }

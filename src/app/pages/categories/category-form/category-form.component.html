@@ -24,6 +24,11 @@
   </ion-fab>
 
   <ion-card *ngIf="visibleCardCateg">
+
+    <ion-card-header>
+      <ion-card-title>Categoria</ion-card-title>
+    </ion-card-header>
+
     <ion-card-content >
       <form [formGroup]="categForm">
 
@@ -43,14 +48,13 @@
             </small>
           </ion-text>
 
-          <ion-item>
           <ion-label>Setor</ion-label>
-          <ion-select  formControlName="sectorID" name="sectorID" multiple="false" ok-text="OK" cancel-text="Cancelar" >
-            <ion-select-option [value]="sector.id" *ngFor="let sector of sectors">{{sector.nome}}</ion-select-option>
-          </ion-select>
-        </ion-item>
-
-        {{selectOpt}}
+          <ion-item >
+            <!-- <ion-label>Setor</ion-label> -->
+            <ion-select  formControlName="sectorID" name="sectorID" multiple="false" ok-text="OK" cancel-text="Cancelar">
+              <ion-select-option [value]="sector.id" *ngFor="let sector of sectors">{{sector.nome}}</ion-select-option>
+            </ion-select>
+          </ion-item>
 
         </ion-list>
       </form>
@@ -73,12 +77,13 @@
 
   <ion-card>
     <ion-card-header>
-      <ion-card-subtitle>Tickets</ion-card-subtitle>
-      <ion-card-title>Nenhum resultado encontado!</ion-card-title>
+      <!-- <ion-card-subtitle>Tickets</ion-card-subtitle> -->
+      <ion-card-title>Tickets</ion-card-title>
     </ion-card-header>
 
     <ion-card-content>
-      <ion-button color="danger" expand="full" routerLink="/sectors">Criar ticket</ion-button>
+      <ion-button color="danger" expand="full" routerLink="/sectors">Criar Ticket</ion-button>
+      <ion-button color="warning" expand="full" routerLink="/tickets">Ver Tickets</ion-button>
     </ion-card-content>
   </ion-card>
 

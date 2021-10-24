@@ -138,11 +138,15 @@
     {
       "nome": "Pantanal Sistemas",
       "id": 14
+    },
+    {
+      "nome": "testeasfasdfasdf",
+      "id": 15
     }
   ],
   "categorias": [
     {
-      "nome": "contas a pagar",
+      "nome": "CONTAS A PAGAR",
       "sectorID": 2,
       "id": 1
     },
@@ -175,6 +179,21 @@
       "nome": "treinamento",
       "sectorID": 12,
       "id": 7
+    },
+    {
+      "nome": "GuiaOfertas.com.br",
+      "sectorID": 3,
+      "id": 8
+    },
+    {
+      "nome": "Programação",
+      "sectorID": 4,
+      "id": 9
+    },
+    {
+      "nome": "aaaa",
+      "sectorID": 1,
+      "id": 10
     }
   ],
   "contatos": [],
