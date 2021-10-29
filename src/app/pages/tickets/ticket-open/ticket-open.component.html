@@ -2,20 +2,19 @@
   <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-buttons slot="start">
-        <ion-back-button defaultHref="/sectors"></ion-back-button>
+        <ion-back-button defaultHref="/tickets"></ion-back-button>
       </ion-buttons>
     </ion-buttons>
-    <ion-title>Detalhes do Ticket</ion-title>
+    <ion-title>Novo Ticket</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
+
+
+
   <ion-card>
-    <ion-card-header>
-      <!-- <ion-card-subtitle>Novo ticket</ion-card-subtitle> -->
-      <ion-card-title>Novo Ticket</ion-card-title>
-    </ion-card-header>
     <ion-card-content>
 
       <ion-item>
@@ -36,33 +35,38 @@
         <ion-textarea placeholder="Insira mais detalhes..."></ion-textarea>
       </ion-item>
     </ion-card-content>
+
   </ion-card>
 
   <ion-card>
     <ion-card-header>
-      <ion-card-subtitle>Fechamento</ion-card-subtitle>
-      <ion-card-title>Em desenvolvimento</ion-card-title>
+      <ion-card-subtitle>Anexos</ion-card-subtitle>
     </ion-card-header>
+
+    <ion-card-content>
+      <ion-button>
+        <ion-icon slot="start" name="add"></ion-icon>
+        Anexar
+      </ion-button>
+    </ion-card-content>
+
   </ion-card>
 
   <ion-card>
     <ion-card-header>
-      <ion-card-subtitle>Cancelamento</ion-card-subtitle>
-      <ion-card-title>Em desenvolvimento</ion-card-title>
-    </ion-card-header>
-  </ion-card>
-
-  <ion-card>
-    <ion-card-header>
-      <ion-card-subtitle>Historico</ion-card-subtitle>
+      <ion-card-subtitle>Comentarios</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
-      <ion-buttons slot="start">
-        <ion-button>
-          <ion-icon slot="start" name="add"></ion-icon>
-          Ver histórico de alterações
-        </ion-button>
-      </ion-buttons>
+
+      <ion-list>
+        <ion-item>
+          <ion-input placeholder="Adicionar comentario"></ion-input>
+
+          <ion-button slot="end">Comentar</ion-button>
+        </ion-item>
+      </ion-list>
+
+
     </ion-card-content>
   </ion-card>
 
