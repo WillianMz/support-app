@@ -12,7 +12,6 @@ export class AppComponent {
     { title: 'Categorias', url: '/categories', icon: 'layers' },
     { title: 'Contatos', url: '/contacts', icon: 'people' },
     { title: 'Tickets', url: '/tickets', icon: 'ticket' },
-    { title: 'Atendimentos', url: '/calls', icon: 'list' },
     { title: 'Configurações', url: '/settings', icon: 'warning' }
   ];
 
